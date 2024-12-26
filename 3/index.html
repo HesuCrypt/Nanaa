@@ -120,6 +120,7 @@
                 const line = document.createElement("p");
                 line.textContent = currentLyric.text;
                 lyricsBox.appendChild(line);
+                lyricsBox.scrollTop = lyricsBox.scrollHeight; // Auto-scroll
                 currentIndex++;
             }
 
