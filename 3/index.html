@@ -18,38 +18,39 @@
         }
 
         .top-text {
-            font-size: 36px;
+            font-size: 3vw;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 2%;
         }
 
         .flower-gif {
-            width: 500px;
+            width: 40%;
+            max-width: 500px;
             height: auto;
-            margin-top: 20px;
+            margin-top: 2%;
         }
 
         .lyrics-box {
-            font-size: 24px;
+            font-size: 1.5vw;
+            max-width: 90%;
             color: black;
             border: 3px solid blue;
-            width: calc(100% - 40px);
-            max-width: 90%;
             text-align: center;
-            padding: 20px;
+            padding: 2%;
             background-color: white;
             border-radius: 5px;
-            height: 200px;
+            height: 20vh;
             overflow-y: auto;
-            margin-top: 30px;
+            margin-top: 3%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .button-container {
-            margin-top: 20px;
+            margin-top: 2%;
         }
 
         .play-button {
-            font-size: 18px;
+            font-size: 1.2rem;
             padding: 10px 20px;
             background-color: lightblue;
             color: black;
@@ -62,6 +63,22 @@
         .play-button:hover {
             background-color: #87ceeb;
         }
+
+        @media (max-width: 768px) {
+            .top-text {
+                font-size: 5vw;
+            }
+
+            .lyrics-box {
+                font-size: 2.5vw;
+                height: 25vh;
+            }
+
+            .play-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -70,9 +87,7 @@
     
     <img src="blue flower.gif" alt="Flower GIF" class="flower-gif">
     
-    <div class="lyrics-box" id="lyrics-box">
-        <!-- Lyrics will appear here dynamically -->
-    </div>
+    <div class="lyrics-box" id="lyrics-box"></div>
 
     <div class="button-container">
         <button class="play-button" id="play-button">Play Music</button>
@@ -120,7 +135,7 @@
                 const line = document.createElement("p");
                 line.textContent = currentLyric.text;
                 lyricsBox.appendChild(line);
-                lyricsBox.scrollTop = lyricsBox.scrollHeight; // Auto-scroll
+                lyricsBox.scrollTop = lyricsBox.scrollHeight;
                 currentIndex++;
             }
 
@@ -132,7 +147,7 @@
         playButton.addEventListener("click", () => {
             music.play();
             playButton.disabled = true;
-            requestAnimationFrame(displayLyrics); // Start displaying lyrics based on music time
+            requestAnimationFrame(displayLyrics);
         });
     </script>
 
